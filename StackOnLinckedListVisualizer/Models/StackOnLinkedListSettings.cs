@@ -14,11 +14,6 @@ public class StackOnLinkedListSettings : AlgorithmSettings
         Description = "Stack implementation using singly linked list logic";
     }
 
-    public StackOnLinkedListSettings(string algorithmName, string description, int collectionSize)
-        : base(algorithmName, description, collectionSize)
-    {
-        DataCollection = new LinkedList<int>();
-    }
 
     public override string GetSettingsInfo()
     {

@@ -109,7 +109,7 @@ namespace StackOnLinckedListVisualizer
             else
             {
                 MessageBox.Show("Stack isn't empty", "Check", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                AddLogEntry($"Stack is empty", LogLevel.INFO);
+                AddLogEntry($"Stack isn't empty", LogLevel.INFO);
             }
         }
 

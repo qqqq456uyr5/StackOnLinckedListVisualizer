@@ -20,7 +20,7 @@ namespace StackOnLinckedListVisualizer.Drawings
         private int offsetBetweenNodes = 30;
 
         
-        public void DrawList(Graphics g, Rectangle bounds, LinkedList<int> dataCollection, string topValue = null)
+        public void DrawList(Graphics g, Rectangle bounds, LinkedList<int> dataCollection, string topValue)
         {
 
             if (dataCollection == null || dataCollection.Count == 0)
@@ -113,8 +113,18 @@ namespace StackOnLinckedListVisualizer.Drawings
         {
             using (Pen pen = new Pen(Color.Black, 2))
             {
-                pen.EndCap = LineCap.ArrowAnchor;
                 g.DrawLine(pen, fromX, fromY, toX, toY);
+
+                pen.Color = Color.Black;
+                pen.Width = 1;
+
+                Point[] arrow = new Point[]
+                {
+                    new Point(toX, toY),
+                    new Point(toX - 10, toY - 5),
+                    new Point(toX - 10, toY + 5)
+                };
+                g.FillPolygon(Brushes.Black, arrow);
             }
         }
 
@@ -128,11 +138,6 @@ namespace StackOnLinckedListVisualizer.Drawings
 
                 g.DrawString("↑ TOP ↑", pointerFont, brush, arrowX - 25, arrowY);
 
-                using (Pen arrowPen = new Pen(Color.DarkGreen, 2))
-                {
-                    arrowPen.EndCap = LineCap.ArrowAnchor;
-                    g.DrawLine(arrowPen, arrowX, arrowY + 15, arrowX, nodeRect.Y - 5);
-                }
             }
         }
     }
